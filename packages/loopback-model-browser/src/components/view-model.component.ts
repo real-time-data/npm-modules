@@ -23,6 +23,12 @@ export class ViewModelComponent {
 
   constructor(private formService: ModelFormService) {}
 
+  deleteItem() {
+    if (confirm('Are you sure you want to delete? This action is irreversible!')) {
+      this.deleteById.emit();
+    }
+  }
+
   ngAfterContentInit() {
     this.modelProperties = this.modelDefinition
       ? Object.keys(this.modelDefinition.properties).map(
