@@ -1,9 +1,10 @@
 {
   "name": "ngrx-entity-helpers",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Scaffolding classes for ngrx-entity ",
   "main": "dist/index.js",
   "scripts": {
+    "bootstrapped": "",
     "build": "npm run tsc",
     "coverage": "nyc jasmine-ts --config=test/jasmine-ci.json src/**/*.spec.ts",
     "clean": "rm -rf dist",

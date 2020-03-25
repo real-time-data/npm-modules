@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://gitlab.rtd.systems/dh3/npm-packages/npm-modules/compare/angular-example-app@1.0.1...angular-example-app@2.0.0) (2020-03-30)
+
+
+### chore
+
+* Update to Angular 9 ([0b67205](https://gitlab.rtd.systems/dh3/npm-packages/npm-modules/commit/0b67205e48aae8a496f85f1bdff945e29c375bf0))
+
+
+### BREAKING CHANGES
+
+* Run ngcc after installing.
+This helps resolve issues with ngc in monorepos such as lerna.
+
+
+
+
+
+## 1.0.1 (2020-03-25)
+
+**Note:** Version bump only for package angular-example-app
+
+
+
+
+
 # 1.0.0 (2018-12-31)
 
 

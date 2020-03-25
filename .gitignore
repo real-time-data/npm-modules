@@ -3,9 +3,6 @@
 ## Add package specific ignores to /packages/[package-name]
 #################
 
-# Zak hates npm 5
-package-lock.json
-
 .vscode
 
 #################

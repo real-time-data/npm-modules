@@ -1,9 +1,3 @@
-####
-## Caleb also hates npm 5
-####
-.npmrc
-package-lock.json
-
 #################
 ## Misc
 #################
