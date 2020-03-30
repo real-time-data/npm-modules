@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "bootstrap:hoist": "lerna bootstrap --hoist",
+    "bootstrap:hoist": "lerna bootstrap --hoist --nohoist=@angular/*",
+    "postbootstrap:hoist": "lerna exec -- npm run bootstrapped",
     "coverage": "lerna run coverage",
     "pack:all": "lerna exec -- npm pack",
     "ci-test": "lerna run ci-test",
@@ -25,6 +26,6 @@
   "license": "LGPL-3.0",
   "devDependencies": {
     "codelyzer": "4.4.2",
-    "lerna": "3.6.0"
+    "lerna": "3.20.2"
   }
 }

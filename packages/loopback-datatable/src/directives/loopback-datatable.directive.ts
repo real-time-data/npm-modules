@@ -1,7 +1,8 @@
 import { ContentChild, Directive, Host, Input } from '@angular/core';
-import { MatPaginator, MatSort, MatTable } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
 import { map } from 'rxjs/operators';
-
 import { AbstractModelApi, LoopbackDatasource } from '../loopback-datasource';
 
 @Directive({
@@ -17,13 +18,12 @@ export class LoopbackDatatableDirective {
     this.updateQuery();
     this.updatePageCount();
   }
-  @ContentChild(MatTable) table: any;
   @ContentChild(MatSort) sort: MatSort;
 
   constructor(@Host() public host: MatTable<any>) {}
 
   ngOnInit() {
-    this.table.dataSource = new LoopbackDatasource(
+    this.host.dataSource = new LoopbackDatasource(
       this.api,
       this.paginator,
       this.sort
@@ -42,8 +42,8 @@ export class LoopbackDatatableDirective {
   }
 
   updateQuery() {
-    if (this.table && this.table.dataSource) {
-      this.table.dataSource.query = this._query;
+    if (this.host && this.host.dataSource) {
+      (this.host.dataSource as LoopbackDatasource).query = this._query;
     }
   }
 }

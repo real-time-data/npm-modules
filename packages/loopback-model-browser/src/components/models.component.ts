@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MatExpansionPanel } from '@angular/material';
+import { MatExpansionPanel } from '@angular/material/expansion';
 import { ActivatedRoute } from '@angular/router';
 import { ModelApiService } from '@nextfaze/loopback-datatable';
 import { QuerializeService } from '@nextfaze/loopback-query';

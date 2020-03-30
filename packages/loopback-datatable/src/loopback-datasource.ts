@@ -1,7 +1,8 @@
 import { DataSource } from '@angular/cdk/table';
-import { MatPaginator, MatSort } from '@angular/material';
-import { BehaviorSubject ,  Observable ,  merge } from 'rxjs';
-import { map ,  switchMap } from 'rxjs/operators';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { BehaviorSubject, merge, Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 export interface AbstractModelApi {
   model: {
@@ -10,18 +11,21 @@ export interface AbstractModelApi {
   count: (where: any) => Observable<{ count: number }>;
   find: (filter: any) => Observable<any | any[]>;
   // Override how pagination query gets constructed.
-  buildPaginationQuery?: (
-    paginationData: {
-      limit: number;
-      page: number;
-      skip: number;
-      sort: string;
-      direction: string;
-    },
-  ) => any;
+  buildPaginationQuery?: (paginationData: {
+    limit: number;
+    page: number;
+    skip: number;
+    sort: string;
+    direction: string;
+  }) => any;
   [key: string]: any;
 }
-
+export class MyDataSource extends DataSource<any> {
+  connect() {
+    return of([]);
+  }
+  disconnect() {}
+}
 export class LoopbackDatasource extends DataSource<any> {
   private _page = 0;
   private _pageSize = 25;
@@ -45,7 +49,7 @@ export class LoopbackDatasource extends DataSource<any> {
   constructor(
     private api: AbstractModelApi, // a Loopback Model API
     private paginator?: MatPaginator,
-    private sort?: MatSort,
+    private sort?: MatSort
   ) {
     super();
   }
@@ -78,7 +82,7 @@ export class LoopbackDatasource extends DataSource<any> {
         return this.api
           .find({ ...query, ...this.query })
           .pipe(map(result => (Array.isArray(result) ? result : [result])));
-      }),
+      })
     );
   }
 

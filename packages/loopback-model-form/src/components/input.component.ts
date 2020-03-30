@@ -4,17 +4,15 @@ import {
   ComponentRef,
   forwardRef,
   Input,
-  ViewChild,
   ViewContainerRef,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
 import { ControlRendererConfig } from '../services';
 import { ControlRendererComponent, Property } from '../types';
 
 @Component({
   selector: 'loopback-input',
-  template: '<ng-container #placeholder></ng-container>',
+  template: '',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -24,10 +22,6 @@ import { ControlRendererComponent, Property } from '../types';
   ],
 })
 export class InputComponent implements ControlValueAccessor {
-  // Placeholder where the input will be created at
-  @ViewChild('placeholder', { read: ViewContainerRef })
-  placeholder: ViewContainerRef;
-
   @Input('formControlName') formControlName: string;
 
   @Input()
@@ -42,7 +36,7 @@ export class InputComponent implements ControlValueAccessor {
       const factory = this.componentFactoryResolver.resolveComponentFactory(
         component
       );
-      this.comp = this.placeholder.createComponent(factory);
+      this.comp = this.vrc.createComponent(factory);
     }
     // Set component
     this.comp.instance.properties = val;
@@ -54,7 +48,8 @@ export class InputComponent implements ControlValueAccessor {
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
-    public config: ControlRendererConfig
+    public config: ControlRendererConfig,
+    private vrc: ViewContainerRef
   ) {}
 
   writeValue = (obj: any) => this.comp.instance.writeValue(obj);

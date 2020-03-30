@@ -1,8 +1,8 @@
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatSortModule, MatTableModule } from '@angular/material';
-
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { LoopbackDataTableComponent } from '../components';
 import {
   CellPlaceholderDirective,

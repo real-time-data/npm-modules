@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModelApiService } from '@nextfaze/loopback-datatable';
 import { Observable } from 'rxjs';

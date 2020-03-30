@@ -2,7 +2,7 @@ import { map } from 'rxjs/operators';
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModelApiService } from '@nextfaze/loopback-datatable';
 import { ModelFormService } from '@nextfaze/loopback-model-form';
