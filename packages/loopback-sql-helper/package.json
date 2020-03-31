@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/loopback-sql-helper",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "For making work with Loopback Postgres Connector just _slightly_ less painful.",
   "main": "dist/index.js",
   "module": "dist/index.js",

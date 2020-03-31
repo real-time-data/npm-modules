@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://gitlab.rtd.systems/dh3/npm-packages/npm-modules/compare/angular-example-app@3.0.0...angular-example-app@3.0.1) (2020-03-31)
+
+**Note:** Version bump only for package angular-example-app
+
+
+
+
+
 # 3.0.0 (2020-03-31)
 
 

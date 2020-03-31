@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-model-form@4.0.0...@nextfaze/loopback-model-form@4.0.1) (2020-03-31)
+
+**Note:** Version bump only for package @nextfaze/loopback-model-form
+
+
+
+
+
 # 4.0.0 (2020-03-31)
 
 
