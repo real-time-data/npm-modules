@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/core-tools",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Useful framework-independant JavaScript tidbits",
   "main": "bundles/core.umd.js",
   "module": "dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "ngrx-entity-helpers",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Scaffolding classes for ngrx-entity ",
   "main": "dist/index.js",
   "scripts": {

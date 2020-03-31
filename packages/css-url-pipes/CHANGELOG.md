@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 (2020-03-31)
+
+
+### chore
+
+* Update to Angular 9 ([65922c3](https://github.com/NextFaze/npm-modules/commit/65922c3b464f9f035f38e3bc8dc07a063f7fd501))
+
+
+### BREAKING CHANGES
+
+* Run ngcc after installing.
+This helps resolve issues with ngc in monorepos such as lerna.
+
+
+
+
+
 # [2.0.0](https://github.com/NextFaze/npm-modules/compare/@nextfaze/css-url-pipes@1.0.2...@nextfaze/css-url-pipes@2.0.0) (2020-03-30)
 
 

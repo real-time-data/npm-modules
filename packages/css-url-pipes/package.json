@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/css-url-pipes",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Straight forward pipe to turn an image url into a css url",
   "main": "dist/nextfaze-css-url-pipes.umd.js",
   "module": "dist/index.js",
