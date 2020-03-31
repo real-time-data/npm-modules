@@ -30,7 +30,7 @@
     "jasmine-spec-reporter": "^4.2.1",
     "jasmine-ts": "^0.2.1",
     "junit": "^1.4.9",
-    "nyc": "^11.7.1",
+    "nyc": "^15.0.0",
     "rxjs": "^5.5.10",
     "rxjs-compat": "6.2.2",
     "typescript": "^2.8.3",
