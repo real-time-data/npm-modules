@@ -1,5 +1,6 @@
 import {
   ComponentFactoryResolver,
+  ComponentRef,
   Directive,
   EventEmitter,
   Input,
@@ -7,7 +8,6 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-
 import { WrapperComponent } from '../components';
 import { QuerializeService } from '../services';
 
@@ -17,29 +17,35 @@ import { QuerializeService } from '../services';
 })
 export class QueryDirective {
   @Output('lbQueryOutput') output = new EventEmitter();
-  @Input('lbQueryInput') inputTpl: TemplateRef<any>;
-  @Input('lbQuerySelector') selectorTpl: any;
+  _inputTpl: TemplateRef<any>;
+  @Input('lbQueryInput') set inputTpl(value: TemplateRef<any>) {
+    this.component.instance.inputTpl = value;
+  }
+  @Input('lbQuerySelector') set selectorTpl(value: TemplateRef<any>) {
+    this.component.instance.selectorTpl = value;
+  }
   @Input('lbQuery')
   set dataModel(value: any) {
-    const component = this.vcr.createComponent(
-      this.factory.resolveComponentFactory(WrapperComponent)
-    );
-    component.instance.dataModel = value;
-    component.instance.inputTpl = this.inputTpl;
-    component.instance.selectorTpl = this.selectorTpl;
-    component.instance.content = this.template;
-    component.instance.onSubmit = val => {
+    this.component.instance.dataModel = value;
+    this.component.instance.content = this.template;
+    this.component.instance.onSubmit = (val) => {
       const entries: Array<[string, any]> = Object.keys(val).map(
-        key => <[string, any]>[key, val[key]]
+        (key) => <[string, any]>[key, val[key]]
       );
       return this.output.emit(this.service.parse(entries));
     };
   }
+
+  component: ComponentRef<WrapperComponent>;
 
   constructor(
     private template: TemplateRef<any>,
     private vcr: ViewContainerRef,
     private factory: ComponentFactoryResolver,
     private service: QuerializeService
-  ) {}
+  ) {
+    this.component = this.vcr.createComponent(
+      this.factory.resolveComponentFactory(WrapperComponent)
+    );
+  }
 }

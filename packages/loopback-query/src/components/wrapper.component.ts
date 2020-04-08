@@ -10,11 +10,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   selector: 'lbq-wrapper',
   template: `
     <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
-        <form *ngFor="let field of fields" [formGroup]="field.form">
-            <ng-container *ngTemplateOutlet="inputTpl; context: field.inputCtx"></ng-container>
-            <ng-container *ngTemplateOutlet="selectorTpl; context: field.selectorCtx"></ng-container>
-        </form>
-        <ng-container *ngTemplateOutlet="content"></ng-container>
+      <form *ngFor="let field of fields" [formGroup]="field.form">
+        <ng-container
+          *ngTemplateOutlet="inputTpl; context: field.inputCtx"
+        ></ng-container>
+        <ng-container
+          *ngTemplateOutlet="selectorTpl; context: field.selectorCtx"
+        ></ng-container>
+      </form>
+      <ng-container *ngTemplateOutlet="content"></ng-container>
     </form>
   `,
 })
