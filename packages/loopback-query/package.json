@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/loopback-query",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "User interface for creating loopback queries",
   "main": "dist/nextfaze-loopback-query.umd.js",
   "module": "dist/index.js",

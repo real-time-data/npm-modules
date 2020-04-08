@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/loopback-model-browser",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Plug and chug model browser for angular-loopback applications",
   "main": "dist/nextfaze-loopback-model-browser.umd.js",
   "module": "dist/index.js",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@nextfaze/loopback-datatable": "^7.0.1",
     "@nextfaze/loopback-model-form": "^4.0.1",
-    "@nextfaze/loopback-query": "^4.0.1"
+    "@nextfaze/loopback-query": "^4.0.2"
   },
   "devDependencies": {
     "@angular/animations": "9.1.0",

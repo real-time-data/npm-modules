@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.2](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-query@4.0.1...@nextfaze/loopback-query@4.0.2) (2020-04-08)
+
+
+### Bug Fixes
+
+* **loopback-query:** Fix hidden form inputs ([7298456](https://github.com/NextFaze/npm-modules/commit/7298456a773d3c438d8c8eaf95676c31b7d1e1fa))
+
+
+
+
+
 ## [4.0.1](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-query@4.0.0...@nextfaze/loopback-query@4.0.1) (2020-03-31)
 
 **Note:** Version bump only for package @nextfaze/loopback-query
