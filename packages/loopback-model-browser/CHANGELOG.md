@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.4](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-model-browser@5.0.2...@nextfaze/loopback-model-browser@5.0.4) (2020-05-21)
+
+**Note:** Version bump only for package @nextfaze/loopback-model-browser
+
+
+
+
+
 ## [5.0.3](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-model-browser@5.0.2...@nextfaze/loopback-model-browser@5.0.3) (2020-05-21)
 
 **Note:** Version bump only for package @nextfaze/loopback-model-browser
