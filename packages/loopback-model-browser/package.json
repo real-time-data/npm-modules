@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/loopback-model-browser",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Plug and chug model browser for angular-loopback applications",
   "main": "dist/nextfaze-loopback-model-browser.umd.js",
   "module": "dist/index.js",
@@ -24,7 +24,7 @@
   "author": "NextFaze <npm-support@nextfaze.com>",
   "license": "LGPL-3.0",
   "dependencies": {
-    "@nextfaze/loopback-datatable": "^7.0.1",
+    "@nextfaze/loopback-datatable": "^7.0.2",
     "@nextfaze/loopback-model-form": "^4.0.1",
     "@nextfaze/loopback-query": "^4.0.2"
   },

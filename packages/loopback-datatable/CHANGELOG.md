@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.2](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-datatable@7.0.1...@nextfaze/loopback-datatable@7.0.2) (2020-05-21)
+
+
+### Bug Fixes
+
+* **loopback-datatable:** Fix MatSort directive not resolving ([f3b3670](https://github.com/NextFaze/npm-modules/commit/f3b367021e731d799ff5bd63eeea2168cbae3f4b))
+
+
+
+
+
 ## [7.0.1](https://github.com/NextFaze/npm-modules/compare/@nextfaze/loopback-datatable@7.0.0...@nextfaze/loopback-datatable@7.0.1) (2020-03-31)
 
 **Note:** Version bump only for package @nextfaze/loopback-datatable

@@ -1,6 +1,6 @@
 {
   "name": "@nextfaze/loopback-datatable",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Easy paginated loopback model table for Angular",
   "main": "dist/nextfaze-loopback-datatable.umd.js",
   "module": "dist/index.js",
