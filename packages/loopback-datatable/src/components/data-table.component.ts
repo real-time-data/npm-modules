@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -7,11 +8,14 @@ import {
   ContentChildren,
   Input,
   QueryList,
-  ViewChildren
+  ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-
-import { AbstractModelApi } from '..';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
+import { map } from 'rxjs/operators';
+import { AbstractModelApi, LoopbackDatasource } from '..';
 import { CellPlaceholderDirective, CellRendererDirective } from '../directives';
 import { ColumnRendererConfig } from '../services';
 import { CellRendererComponent, ColumnConfig } from '../types';
@@ -19,12 +23,17 @@ import { CellRendererComponent, ColumnConfig } from '../types';
 @Component({
   selector: 'loopback-datatable, loopback-data-table',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './data-table.component.html'
+  templateUrl: './data-table.component.html',
 })
-export class LoopbackDataTableComponent {
+export class LoopbackDataTableComponent implements AfterViewInit {
   // Whether or not to link rows. The string passed in will be the key to link to
   @Input() paginator: MatPaginator;
-  @Input() query: any;
+  _query: any;
+  @Input() set query(value: any) {
+    this._query = value;
+    this.updateQuery();
+    this.updatePageCount();
+  }
   @Input() relatedFields = 'merge';
   _columnConfig: Map<string, ColumnConfig>;
   @Input()
@@ -42,12 +51,15 @@ export class LoopbackDataTableComponent {
 
   columns: ColumnConfig[];
 
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatTable, { static: false }) table: MatTable<any>;
+
   // Placeholder cells rendered in the table.
   @ViewChildren(CellPlaceholderDirective)
   set placeholders(values: QueryList<CellPlaceholderDirective>) {
     this.cellPlaceholders.clear();
     if (values) {
-      values.forEach(cell => {
+      values.forEach((cell) => {
         const cells = this.cellPlaceholders.get(cell.cellPlaceholder) || [];
         this.cellPlaceholders.set(cell.cellPlaceholder, cells.concat(cell));
       });
@@ -60,7 +72,7 @@ export class LoopbackDataTableComponent {
   set renderers(values: QueryList<CellRendererDirective>) {
     this.cellRenderers.clear();
     if (values) {
-      values.forEach(value => {
+      values.forEach((value) => {
         this.cellRenderers.set(value.cellRenderer, value);
       });
     }
@@ -78,6 +90,14 @@ export class LoopbackDataTableComponent {
     public config: ColumnRendererConfig
   ) {}
 
+  ngAfterViewInit() {
+    this.table.dataSource = new LoopbackDatasource(
+      this.model,
+      this.paginator,
+      this.sort
+    );
+  }
+
   ngOnInit() {
     const modelProperties = Object.keys(
       this.model.model.getModelDefinition().properties
@@ -85,12 +105,12 @@ export class LoopbackDataTableComponent {
 
     if (!this.columnConfig) {
       this.columnConfig = new Map();
-      modelProperties.forEach(item =>
+      modelProperties.forEach((item) =>
         this.addColumn(item, {
           key: item,
           type: this.model.model.getModelDefinition().properties[item].type,
           sortable: true,
-          title: this.title(item)
+          title: this.title(item),
         })
       );
     }
@@ -126,7 +146,7 @@ export class LoopbackDataTableComponent {
               key: relation.keyFrom,
               type: 'belongsTo',
               sortable: false,
-              title: this.title(relation.name)
+              title: this.title(relation.name),
             });
           }
         }
@@ -141,11 +161,11 @@ export class LoopbackDataTableComponent {
     this.cellPlaceholders.forEach((placeholders, key) => {
       const renderer = this.cellRenderers.get(key);
       const config = this.columnConfig.get(key);
-      placeholders.forEach(placeholderCell => {
+      placeholders.forEach((placeholderCell) => {
         placeholderCell.viewContainer.clear();
         if (renderer) {
           placeholderCell.viewContainer.createEmbeddedView(renderer.template, {
-            $implicit: placeholderCell.payload
+            $implicit: placeholderCell.payload,
           });
         } else {
           const self = this;
@@ -192,5 +212,20 @@ export class LoopbackDataTableComponent {
     );
     const cell = targetComponent.viewContainer.createComponent(factory);
     return cell;
+  }
+
+  async updatePageCount() {
+    if (this.paginator) {
+      this.paginator.length = await this.model
+        .count(this._query ? this._query.where : {})
+        .pipe(map((res) => res.count))
+        .toPromise();
+    }
+  }
+
+  updateQuery() {
+    if (this.table && this.table.dataSource) {
+      (this.table.dataSource as LoopbackDatasource).query = this._query;
+    }
   }
 }

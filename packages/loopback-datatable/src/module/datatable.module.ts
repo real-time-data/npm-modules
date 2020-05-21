@@ -7,7 +7,6 @@ import { LoopbackDataTableComponent } from '../components';
 import {
   CellPlaceholderDirective,
   CellRendererDirective,
-  LoopbackDatatableDirective,
 } from '../directives';
 import { RENDERERS } from '../renderers';
 import { ColumnRendererConfig } from '../services';
@@ -18,7 +17,6 @@ import { ColumnRendererConfig } from '../services';
     LoopbackDataTableComponent,
     CellPlaceholderDirective,
     CellRendererDirective,
-    LoopbackDatatableDirective,
     ...RENDERERS,
   ],
   entryComponents: RENDERERS,
@@ -27,7 +25,6 @@ import { ColumnRendererConfig } from '../services';
     LoopbackDataTableComponent,
     CellPlaceholderDirective,
     CellRendererDirective,
-    LoopbackDatatableDirective,
   ],
   providers: [ColumnRendererConfig],
 })
